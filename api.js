@@ -6,8 +6,17 @@ const moment = require('moment-timezone');
 moment.tz.setDefault("UTC");
 
 // Axios
+// const $http = axios.create({
+//   baseURL: `http://localhost:${process.env.PORT}/offline_api`,
+// });
+
+// Axios
+// const $http = axios.create({
+//   baseURL: `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.API_KEY}`,
+// });
+
 const $http = axios.create({
-  baseURL: `http://localhost:${process.env.PORT}/offline_api`,
+  baseURL: `http://www.omdbapi.com/`,
 });
 
 function generateSessions(id) {
@@ -54,7 +63,7 @@ module.exports = {
         ids,
         function (id, callback) {
           if (!data.find(item => item.id === id)) {
-            $http.get(`?i=${id}`)
+            $http.get(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.API_KEY}`)
               .then(
                 function (response) {
                   if (!response.data.Error) {
