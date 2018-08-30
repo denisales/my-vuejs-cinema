@@ -1,4 +1,6 @@
 module.exports = Object.freeze({
+  ACTION: 'Action',
+  ADVENTURE: 'Adventure',
   ANIMATION: 'Animation',
   COMEDY: 'Comedy',
   CRIME: 'Crime',
