@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +13,18 @@
         }
     </style>
 </head>
+
 <body>
-<div id="app">
-    <div id="title">
-        <img src="/public/logo.png">
-        <h1>Vue.js Cinema</h1>
-    </div>
-    <div id="overview">
-        <div class="main">
-            <movie-list :genre="genre" :time="time" :movies="movies"></movie-list>
-            <movie-filter @check-filter="checkFilter"></movie-filter>
+    <div id="app" v-cloak>
+        <div id="title">
+            <img src="/public/logo.png">
+            <h1>Vue.js Cinema</h1>
         </div>
+        <keep-alive>
+            <router-view :genre="genre" :time="time" :movies="movies" :day="day"></router-view>
+        </keep-alive>
     </div>
-</div>
-<script src="/dist/build.js"></script>
+    <script src="/dist/build.js"></script>
 </body>
+
 </html>
